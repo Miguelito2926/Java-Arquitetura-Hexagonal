@@ -11,12 +11,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/cliente")
 public class ClienteController {
 
     private final IClienteService iClienteServicePort;
     private final IClienteMapper mapper;
+
+    public ClienteController(IClienteService iClienteServicePort, IClienteMapper mapper) {
+        this.iClienteServicePort = iClienteServicePort;
+        this.mapper = mapper;
+    }
 
     @PostMapping
     public ResponseEntity<ClienteResponseDTO> solicitaCartao(@RequestBody ClienteRequestDTO clienteRequestDTO) {
