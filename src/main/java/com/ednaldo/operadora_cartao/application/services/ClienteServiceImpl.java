@@ -8,15 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ClienteServiceImpl implements IClienteService {
 
     private final IClienteRepository iClienteRepository;
     private final GeraDadosCartaoService geraCartao;
-
-    public ClienteServiceImpl(IClienteRepository iClienteRepository, GeraDadosCartaoService geraCartao) {
-        this.iClienteRepository = iClienteRepository;
-        this.geraCartao = geraCartao;
-    }
 
     @Override
     public ClienteDomain solicitarCartao(ClienteDomain cliente) {
